@@ -16,6 +16,7 @@
 - name: Copy pub key to the host machine if key exists
   block:
   - name: Check if '{{ pub_key }}' exists
+    delegate_to: localhost
     stat:
       path: "{{ pub_key }}"
     register: is_pub_key
